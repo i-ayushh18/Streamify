@@ -1,13 +1,19 @@
-import { ScreenContent } from 'components/ScreenContent';
-import { StatusBar } from 'expo-status-bar';
-
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import HomeStack from './app/homeStack'; // Adjust this path
 import './global.css';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+const App = () => {
   return (
-    <>
-      <ScreenContent title="Home" path="App.tsx" />
-      <StatusBar style="auto" />
-    </>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <HomeStack />
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
-}
+};
+
+export default App;
